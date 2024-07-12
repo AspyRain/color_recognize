@@ -5,9 +5,9 @@ module HSVComparator (
     input wire [2:0] threshold_level,
     output reg similar_flag
 );
-parameter THRESHOLD1_H = 30,  THRESHOLD1_S = 16,  THRESHOLD1_V = 16;  // 第一档阈值
-parameter THRESHOLD2_H = 15, THRESHOLD2_S = 8, THRESHOLD2_V = 8; // 第二档阈值
-parameter THRESHOLD3_H = 10, THRESHOLD3_S = 5, THRESHOLD3_V = 5; // 第三档阈值
+parameter THRESHOLD1_H = 30, THRESHOLD1_S = 16, THRESHOLD1_V = 16;  // 第一档阈值
+parameter THRESHOLD2_H = 15, THRESHOLD2_S = 8,  THRESHOLD2_V = 8; // 第二档阈值
+parameter THRESHOLD3_H = 10, THRESHOLD3_S = 5,  THRESHOLD3_V = 5; // 第三档阈值
 parameter THRESHOLD4_H = 5,  THRESHOLD4_S = 3,  THRESHOLD4_V = 3;  // 第四档阈值
 
 
@@ -34,6 +34,7 @@ always @(posedge clk) begin
     // 考虑色调的周期性
     if (h_diff > 180) begin
         h_diff = 360 - h_diff;
+        
     end
 
     // 根据输入的档位决定阈值，并判断颜色是否相似
