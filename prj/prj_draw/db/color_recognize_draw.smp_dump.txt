@@ -1,0 +1,34 @@
+
+State Machine - |color_recognize|cls381_top_multi:cls381_top_inst|i2c_ctrl:i2c_ctrl_inst|c_state
+Name c_state.WAIT c_state.NACK c_state.STOP c_state.ACK_3 c_state.DATA c_state.ACK_2 c_state.REG_ADDR c_state.ACK_1 c_state.SLAVE_ADDR c_state.START c_state.IDLE 
+c_state.IDLE 0 0 0 0 0 0 0 0 0 0 0 
+c_state.START 0 0 0 0 0 0 0 0 0 1 1 
+c_state.SLAVE_ADDR 0 0 0 0 0 0 0 0 1 0 1 
+c_state.ACK_1 0 0 0 0 0 0 0 1 0 0 1 
+c_state.REG_ADDR 0 0 0 0 0 0 1 0 0 0 1 
+c_state.ACK_2 0 0 0 0 0 1 0 0 0 0 1 
+c_state.DATA 0 0 0 0 1 0 0 0 0 0 1 
+c_state.ACK_3 0 0 0 1 0 0 0 0 0 0 1 
+c_state.STOP 0 0 1 0 0 0 0 0 0 0 1 
+c_state.NACK 0 1 0 0 0 0 0 0 0 0 1 
+c_state.WAIT 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |color_recognize|draw_top:ws2812_top_inst|ws2812_ctrl:ws2812_ctrl_inst|c_state
+Name c_state.SEND_ONE c_state.SEND_ZERO c_state.ARBIT c_state.IDLE c_state.RST_N 
+c_state.IDLE 0 0 0 0 0 
+c_state.ARBIT 0 0 1 1 0 
+c_state.SEND_ZERO 0 1 0 1 0 
+c_state.SEND_ONE 1 0 0 1 0 
+c_state.RST_N 0 0 0 1 1 
+
+State Machine - |color_recognize|draw_top:ws2812_top_inst|FSM_KEY:FSM_KEY_inst|key_out_pulse
+Name key_out_pulse.01 
+key_out_pulse.00 0 
+key_out_pulse.01 1 
+
+State Machine - |color_recognize|draw_top:ws2812_top_inst|FSM_KEY:FSM_KEY_inst|state_c
+Name state_c.UP state_c.HOLD state_c.DOWN state_c.IDLE 
+state_c.IDLE 0 0 0 0 
+state_c.DOWN 0 0 1 1 
+state_c.HOLD 0 1 0 1 
+state_c.UP 1 0 0 1 

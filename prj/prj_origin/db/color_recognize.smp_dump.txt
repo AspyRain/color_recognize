@@ -1,0 +1,22 @@
+
+State Machine - |color_recognize|cls381_top:cls381_top_inst|i2c_ctrl:i2c_ctrl_inst|c_state
+Name c_state.WAIT c_state.NACK c_state.STOP c_state.ACK_3 c_state.DATA c_state.ACK_2 c_state.REG_ADDR c_state.ACK_1 c_state.SLAVE_ADDR c_state.START c_state.IDLE 
+c_state.IDLE 0 0 0 0 0 0 0 0 0 0 0 
+c_state.START 0 0 0 0 0 0 0 0 0 1 1 
+c_state.SLAVE_ADDR 0 0 0 0 0 0 0 0 1 0 1 
+c_state.ACK_1 0 0 0 0 0 0 0 1 0 0 1 
+c_state.REG_ADDR 0 0 0 0 0 0 1 0 0 0 1 
+c_state.ACK_2 0 0 0 0 0 1 0 0 0 0 1 
+c_state.DATA 0 0 0 0 1 0 0 0 0 0 1 
+c_state.ACK_3 0 0 0 1 0 0 0 0 0 0 1 
+c_state.STOP 0 0 1 0 0 0 0 0 0 0 1 
+c_state.NACK 0 1 0 0 0 0 0 0 0 0 1 
+c_state.WAIT 1 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |color_recognize|ws2812_top:ws2812_top_inst|ws2812_ctrl:ws2812_ctrl_inst|c_state
+Name c_state.SEND_ONE c_state.SEND_ZERO c_state.ARBIT c_state.IDLE c_state.RST_N 
+c_state.IDLE 0 0 0 0 0 
+c_state.ARBIT 0 0 1 1 0 
+c_state.SEND_ZERO 0 1 0 1 0 
+c_state.SEND_ONE 1 0 0 1 0 
+c_state.RST_N 0 0 0 1 1 

@@ -1,0 +1,32 @@
+module test_top (
+    input           clk     ,
+    input           rst_n   ,
+
+    output          scl     ,
+
+    inout           sda     
+);
+    wire    [7:0]   data_r  ;
+    wire    [7:0]   data_g  ;
+    wire    [7:0]   data_b  ;
+
+    cls381_top_multi        cls381_top_inst(
+        .sys_clk            (clk        ),
+        .sys_rst_n          (rst_n      ),
+        
+        .scl                (scl        ),
+        .sda                (sda        ),
+
+        .data_r_out         (data_r     ),
+        .data_g_out         (data_g     ),
+        .data_b_out         (data_b     )
+    );
+
+    rgb_hsv                 rgb_hsv_inst(
+        .clk                (clk        ),
+        .rst_n              (rst_n      ),
+        .rgb_r              (data_r     ),
+        .rgb_g              (data_g     ),
+        .rgb_b              (data_b     )  
+    );
+endmodule

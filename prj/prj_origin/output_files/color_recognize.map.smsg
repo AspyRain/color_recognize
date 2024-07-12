@@ -1,0 +1,5 @@
+Info (10281): Verilog HDL Declaration information at driver.v(12): object "SLAVE_ADDR" differs only in case from object "slave_addr" in the same scope File: D:/study/FPGA/color_recognize/rtl/rtl_origin/driver.v Line: 12
+Info (10281): Verilog HDL Declaration information at driver.v(14): object "REG_ADDR" differs only in case from object "reg_addr" in the same scope File: D:/study/FPGA/color_recognize/rtl/rtl_origin/driver.v Line: 14
+Info (10281): Verilog HDL Declaration information at driver.v(16): object "DATA" differs only in case from object "data" in the same scope File: D:/study/FPGA/color_recognize/rtl/rtl_origin/driver.v Line: 16
+Info (10281): Verilog HDL Declaration information at i2c_ctrl.v(21): object "SLAVE_ADDR" differs only in case from object "slave_addr" in the same scope File: D:/study/FPGA/color_recognize/rtl/rtl_origin/i2c_ctrl.v Line: 21
+Info (10281): Verilog HDL Declaration information at i2c_ctrl.v(23): object "REG_ADDR" differs only in case from object "reg_addr" in the same scope File: D:/study/FPGA/color_recognize/rtl/rtl_origin/i2c_ctrl.v Line: 23

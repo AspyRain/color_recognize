@@ -1,0 +1,208 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dD:/study/FPGA/color_recognize/prj/prj_origin/simulation/modelsim
+vcls381_cfg_ctrl
+Z1 !s110 1720687820
+!i10b 1
+!s100 JYe?YcX7Gj@]LKFE`gIGV1
+Ii68`SA]N6M1<[JSBVg^470
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1720685210
+8D:/study/FPGA/color_recognize/rtl/rtl_origin/cls381_cfg_ctrl.v
+FD:/study/FPGA/color_recognize/rtl/rtl_origin/cls381_cfg_ctrl.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1720687820.000000
+!s107 D:/study/FPGA/color_recognize/rtl/rtl_origin/cls381_cfg_ctrl.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/study/FPGA/color_recognize/rtl/rtl_origin|D:/study/FPGA/color_recognize/rtl/rtl_origin/cls381_cfg_ctrl.v|
+!i113 1
+Z5 o-vlog01compat -work work
+Z6 !s92 -vlog01compat -work work +incdir+D:/study/FPGA/color_recognize/rtl/rtl_origin
+Z7 tCvgOpt 0
+vcls381_top
+R1
+!i10b 1
+!s100 CWa6YDCF0?bgGeZ75kkhM2
+ImhXd=zESTOJBK?O]@eHFa1
+R2
+R0
+w1720685258
+8D:/study/FPGA/color_recognize/rtl/rtl_origin/cls381_top.v
+FD:/study/FPGA/color_recognize/rtl/rtl_origin/cls381_top.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/study/FPGA/color_recognize/rtl/rtl_origin/cls381_top.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/study/FPGA/color_recognize/rtl/rtl_origin|D:/study/FPGA/color_recognize/rtl/rtl_origin/cls381_top.v|
+!i113 1
+R5
+R6
+R7
+vcolor_recognize
+R1
+!i10b 1
+!s100 C2<Zl>olYDQ5:jUJmIXX]3
+IM5nzhh9mEZfX@OC4V:UX01
+R2
+R0
+w1720685867
+8D:/study/FPGA/color_recognize/rtl/rtl_origin/color_recognize.v
+FD:/study/FPGA/color_recognize/rtl/rtl_origin/color_recognize.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/study/FPGA/color_recognize/rtl/rtl_origin/color_recognize.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/study/FPGA/color_recognize/rtl/rtl_origin|D:/study/FPGA/color_recognize/rtl/rtl_origin/color_recognize.v|
+!i113 1
+R5
+R6
+R7
+vdriver
+R1
+!i10b 1
+!s100 ;HWIK;0j4aYW407TNE;8l1
+I8<Ym557aTb981VI@oQLZz0
+R2
+R0
+w1720687233
+8D:/study/FPGA/color_recognize/prj/prj_origin/../../rtl/rtl_origin/driver.v
+FD:/study/FPGA/color_recognize/prj/prj_origin/../../rtl/rtl_origin/driver.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/study/FPGA/color_recognize/prj/prj_origin/../../rtl/rtl_origin/driver.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/study/FPGA/color_recognize/prj/prj_origin/../../rtl/rtl_origin|D:/study/FPGA/color_recognize/prj/prj_origin/../../rtl/rtl_origin/driver.v|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+D:/study/FPGA/color_recognize/prj/prj_origin/../../rtl/rtl_origin
+R7
+vi2c_ctrl
+R1
+!i10b 1
+!s100 PFn;dGS^U9e@US>YTm[>m3
+Ik2gzTg:i>On@NUY:3KAQN1
+R2
+R0
+w1720685235
+8D:/study/FPGA/color_recognize/rtl/rtl_origin/i2c_ctrl.v
+FD:/study/FPGA/color_recognize/rtl/rtl_origin/i2c_ctrl.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/study/FPGA/color_recognize/rtl/rtl_origin/i2c_ctrl.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/study/FPGA/color_recognize/rtl/rtl_origin|D:/study/FPGA/color_recognize/rtl/rtl_origin/i2c_ctrl.v|
+!i113 1
+R5
+R6
+R7
+vtop_tb
+R1
+!i10b 1
+!s100 d0_O>]T?UN16Z0XXCcmP21
+Ifmo<Hac=jnzE]oG21kNDJ0
+R2
+R0
+w1720687782
+8D:/study/FPGA/color_recognize/prj/prj_origin/../../tb/tb_origin/top_tb.v
+FD:/study/FPGA/color_recognize/prj/prj_origin/../../tb/tb_origin/top_tb.v
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/study/FPGA/color_recognize/prj/prj_origin/../../tb/tb_origin/top_tb.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/study/FPGA/color_recognize/prj/prj_origin/../../tb/tb_origin|D:/study/FPGA/color_recognize/prj/prj_origin/../../tb/tb_origin/top_tb.v|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+D:/study/FPGA/color_recognize/prj/prj_origin/../../tb/tb_origin
+R7
+vws2812_cfg_ctrl
+R1
+!i10b 1
+!s100 Oe6de:9AL4;1Lkz@>TMmG2
+I1R72DgL6aIcY@2Xz`ATiB2
+R2
+R0
+w1720685308
+8D:/study/FPGA/color_recognize/rtl/rtl_origin/ws2812_cfg_ctrl.v
+FD:/study/FPGA/color_recognize/rtl/rtl_origin/ws2812_cfg_ctrl.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/study/FPGA/color_recognize/rtl/rtl_origin/ws2812_cfg_ctrl.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/study/FPGA/color_recognize/rtl/rtl_origin|D:/study/FPGA/color_recognize/rtl/rtl_origin/ws2812_cfg_ctrl.v|
+!i113 1
+R5
+R6
+R7
+vws2812_ctrl
+R1
+!i10b 1
+!s100 Pk6VTnEnF0MeihOlc3I8Y1
+IcKM6BdEa=`XPN[]enhE@c3
+R2
+R0
+w1720685816
+8D:/study/FPGA/color_recognize/rtl/rtl_origin/ws2812_ctrl.v
+FD:/study/FPGA/color_recognize/rtl/rtl_origin/ws2812_ctrl.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/study/FPGA/color_recognize/rtl/rtl_origin/ws2812_ctrl.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/study/FPGA/color_recognize/rtl/rtl_origin|D:/study/FPGA/color_recognize/rtl/rtl_origin/ws2812_ctrl.v|
+!i113 1
+R5
+R6
+R7
+vws2812_top
+R1
+!i10b 1
+!s100 9fb30kz4H3nR_[KnG9Y9?1
+IQ;Y@ck5Hflo^]FnGXF8AC3
+R2
+R0
+w1720685829
+8D:/study/FPGA/color_recognize/rtl/rtl_origin/ws2812_top.v
+FD:/study/FPGA/color_recognize/rtl/rtl_origin/ws2812_top.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 D:/study/FPGA/color_recognize/rtl/rtl_origin/ws2812_top.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+D:/study/FPGA/color_recognize/rtl/rtl_origin|D:/study/FPGA/color_recognize/rtl/rtl_origin/ws2812_top.v|
+!i113 1
+R5
+R6
+R7
