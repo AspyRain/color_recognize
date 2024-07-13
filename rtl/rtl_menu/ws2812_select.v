@@ -85,7 +85,7 @@ always@(posedge sys_clk or negedge sys_rst_n)
 		
 always@(posedge sys_clk or negedge sys_rst_n)
 	if(sys_rst_n == 1'b0)
-		cfg_num  <=  6'd0  ;
+		cfg_num  <=  6'd0			;
 	else  if(cfg_start == 1'b1)
 		cfg_num  <=  cfg_num + 1'b1  ;
 	else
