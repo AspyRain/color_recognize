@@ -9,6 +9,7 @@ module  ws2812_select
 	input	wire	[7:0]	data_b			,	//蓝色分量
 	output	reg				ws2812_start	,	//控制模块开始工作指示的单脉冲信号，由配置模块产生
 	output	reg		[5:0]	cfg_num			,	//配置的8x8点阵个数，最大值64-1
+	output	reg		[1:0]	mode			,
 	output			[23:0]	cfg_data			//待显示的颜色数据
 );
 
@@ -38,6 +39,20 @@ always @(posedge sys_clk or negedge sys_rst_n) begin
 			default:
 				select_index <= select_index;
 		endcase
+	end
+end
+
+always @(posedge sys_clk or negedge sys_rst_n) begin
+	if (!sys_rst_n)begin
+		mode <= 2'b0;
+	end
+	else begin
+		if (key[4]==1'b1)begin
+			mode <= select_index;
+		end
+		else begin
+			mode <= mode;
+		end
 	end
 end
 

@@ -33,7 +33,7 @@ c_state.SEND_ZERO 0 1 0 1 0
 c_state.SEND_ONE 1 0 0 1 0 
 c_state.RST_N 0 0 0 1 1 
 
-State Machine - |color_recognize|ws2812_top:ws2812_top_inst|ws2812_select:ws2812_cfg_ctrl_inst|select_index
+State Machine - |color_recognize|ws2812_top:ws2812_top_inst|ws2812_select:ws2812_cfg_ctrl_select_inst|select_index
 Name select_index.00 select_index.10 select_index.01 
 select_index.00 0 0 0 
 select_index.01 1 0 1 

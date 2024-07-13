@@ -23,6 +23,7 @@ FSM_KEY         FSM_KEY_inst(
     .key_in     (key_in     ),
     .key_out    (key_out    )
 );
+
 counter         counter_inst(
     .clk        (sys_clk    ),
     .rst_n      (sys_rst_n  ),
