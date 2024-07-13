@@ -12,7 +12,7 @@ module  i2c_ctrl
 	output	reg		[23:0]	data_r		,
 	output	reg		[23:0]	data_g		,
 	output	reg		[23:0]	data_b		,
-	
+	output			[3:0]	start_c		,
 	inout	wire			sda
 );
 
@@ -62,10 +62,10 @@ wire			sda_en		;	//主机控制SDA使能信号，为1代表主机控制SDA，为
 
 assign  scl  =  i2c_scl  ;
 //三态门
-assign  sda_in  =  sda  ;
-assign  sda_en  =  ((c_state == ACK_1)||(c_state == ACK_2)||(c_state == ACK_3)||((step != 3'd0)&&(c_state == DATA))) ? 1'b0 : 1'b1  ;
-assign  sda     =  (sda_en == 1'b1) ? i2c_sda : 1'bz  ;
-
+assign  sda_in  =  	sda  ;
+assign  sda_en  =  	((c_state == ACK_1)||(c_state == ACK_2)||(c_state == ACK_3)||((step != 3'd0)&&(c_state == DATA))) ? 1'b0 : 1'b1  ;
+assign  sda     =  	(sda_en == 1'b1) ? i2c_sda : 1'bz  ;
+assign  start_c = 	c_state;
 always@(*)
 	case(step)
 		3'd0	:begin	

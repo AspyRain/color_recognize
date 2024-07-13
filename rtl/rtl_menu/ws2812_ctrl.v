@@ -10,12 +10,14 @@ module  ws2812_ctrl
 	output	reg				led_data	
 );
 
-localparam	IDLE		=	3'd0	,	//空闲状态，跳转条件是配置模块产生的ws2812_start
-			ARBIT		=	3'd1	,	//仲裁状态，判断每一位RGB888是0还是1，是0跳转到SEND_SERO，是1跳转到SEND_ONE
+localparam	
+			IDLE			=	3'd0	,	//空闲状态，跳转条件是配置模块产生的ws2812_start
+			ARBIT			=	3'd1	,	//仲裁状态，判断每一位RGB888是0还是1，是0跳转到SEND_SERO，是1跳转到SEND_ONE
 			SEND_ZERO	=	3'd2	,	//发送数据0状态，发送24x64个数据完毕跳转到RST_N状态，发送完成0码重新跳转到仲裁状态
-			SEND_ONE	=	3'd3	,	//发送数据1状态，发送24x64个数据完毕跳转到RST_N状态，发送完成1码重新跳转到仲裁状态
-			RST_N		=	3'd4	;	//复位状态，发送完成24x64个数据后，复位状态会持续一段时间低电平
-localparam	CNT_WAIT_0	=	14'd55		,	//发送数据0等待时间，1100ns，总时间为CNT_WAIT_0 + ARBIT_time = 1180ns
+			SEND_ONE		=	3'd3	,	//发送数据1状态，发送24x64个数据完毕跳转到RST_N状态，发送完成1码重新跳转到仲裁状态
+			RST_N			=	3'd4	;	//复位状态，发送完成24x64个数据后，复位状态会持续一段时间低电平
+localparam	
+			CNT_WAIT_0	=	14'd55		,	//发送数据0等待时间，1100ns，总时间为CNT_WAIT_0 + ARBIT_time = 1180ns
 			CNT_WAIT_H0	=	14'd15		,	//发送数据0高电平时间，300ns，低电平时间为CNT_WAIT_0 - CNT_WAIT_H0 + ARBIT_time = 880ns
 			CNT_WAIT_1	=	14'd64		,	//发送数据1等待时间，1280ns，总时间为CNT_WAIT_1 + ARBIT_time = 1360ns
 			CNT_WAIT_H1	=	14'd32		,	//发送数据1高电平时间，640ns，低电平时间为CNT_WAIT_1 - CNT_WAIT_H1 + ARBIT_time = 720ns

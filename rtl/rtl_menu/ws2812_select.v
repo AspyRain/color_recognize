@@ -106,6 +106,8 @@ generate
             assign data[k] =(select_index == 2'b0) ? 24'h0: (select_index == 2'b1) ? data_S[k] : (select_index == 2'b10) ? data_D[k] : 24'h0;
     end
 endgenerate
+
+
 assign cfg_data  =  {(data[cfg_num][23:16] >> 3),(data[cfg_num][15:8] >> 3),(data[cfg_num][7:0] >> 3)}  ;
 
 

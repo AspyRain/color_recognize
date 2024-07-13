@@ -23,25 +23,27 @@ wire			ws2812_start_select;
 wire	[5:0]	cfg_num_select		;
 wire	[23:0]	cfg_data_select	;
 
-wire	[4:0]		key_out		;
+wire	[4:0]	key_out		;
 wire	[1:0]	mode		;
 
-reg	[4:0]	key_draw;
-reg	[4:0]	key_menu;
+reg		[4:0]	key_draw;
+reg		[4:0]	key_menu;
 wire            c_ok        ;
+wire			pwm_bgm		;
+wire			pwm_jingle	;
 
 ws2812_select  ws2812_cfg_ctrl_select_inst
 (
-	.sys_clk		(sys_clk		),
-	.sys_rst_n		(sys_rst_n		),
-	.cfg_start		(cfg_start		),
-	.ws2812_start	(ws2812_start_select	),
- 	.key            (key_menu        ),
- 	.data_r			(data_r			),
-	.data_g			(data_g			),
-	.data_b			(data_b			),
-	.mode			(mode			),
-	.cfg_num		(cfg_num_select		),
+	.sys_clk		(sys_clk		)			,
+	.sys_rst_n		(sys_rst_n		)			,
+	.cfg_start		(cfg_start		)			,
+	.ws2812_start	(ws2812_start_select	)	,
+ 	.key            (key_menu        )			,
+ 	.data_r			(data_r			)			,
+	.data_g			(data_g			)			,
+	.data_b			(data_b			)			,
+	.mode			(mode			)			,
+	.cfg_num		(cfg_num_select		)		,
 	.cfg_data       (cfg_data_select       )
 );
 
@@ -90,8 +92,18 @@ beep_bgm		beep_bgm_inst(
 	.flag		(sys_rst_n	),
 	.mode_n		(mode		),
 
-	.pwm		(pwm		)
+	.pwm		(pwm_bgm		)
 );
+
+beep_jingles	beep_jingles_inst(
+	.clk		(sys_clk		),
+	.rst_n		(sys_rst_n		),
+	
+	.key		(key_out		),
+	.pwm		(pwm_jingle		)
+);
+
+assign pwm = pwm_jingle;
 
 always @(posedge sys_clk or negedge sys_rst_n) begin
 	if (!sys_rst_n)begin
