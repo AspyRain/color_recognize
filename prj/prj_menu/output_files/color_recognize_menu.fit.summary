@@ -1,16 +1,16 @@
-Fitter Status : Successful - Sat Jul 13 09:24:27 2024
+Fitter Status : Successful - Sat Jul 13 12:44:27 2024
 Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Standard Edition
 Revision Name : color_recognize_menu
 Top-level Entity Name : color_recognize
 Family : Cyclone IV E
 Device : EP4CE6F17C8
 Timing Models : Final
-Total logic elements : 4,050 / 6,272 ( 65 % )
-    Total combinational functions : 3,785 / 6,272 ( 60 % )
-    Dedicated logic registers : 760 / 6,272 ( 12 % )
-Total registers : 760
-Total pins : 10 / 180 ( 6 % )
+Total logic elements : 4,438 / 6,272 ( 71 % )
+    Total combinational functions : 4,123 / 6,272 ( 66 % )
+    Dedicated logic registers : 888 / 6,272 ( 14 % )
+Total registers : 888
+Total pins : 11 / 180 ( 6 % )
 Total virtual pins : 0
-Total memory bits : 1,152 / 276,480 ( < 1 % )
+Total memory bits : 1,920 / 276,480 ( < 1 % )
 Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
 Total PLLs : 0 / 2 ( 0 % )

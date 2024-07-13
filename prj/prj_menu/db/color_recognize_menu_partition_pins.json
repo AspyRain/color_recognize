@@ -12,6 +12,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "pwm",
+					"strict" : false
+				},
+				{
 					"name" : "sda",
 					"strict" : false
 				},

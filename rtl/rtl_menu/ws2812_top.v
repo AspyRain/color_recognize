@@ -6,7 +6,8 @@ module  ws2812_top
 	input	wire	[7:0]	data_r		,
 	input	wire	[7:0]	data_g		,
 	input	wire	[7:0]	data_b		,
-	output	wire			led_data
+	output	wire			led_data	,
+	output					pwm			
 );
 
 wire			cfg_start	;
@@ -81,6 +82,15 @@ FSM_KEY         FSM_KEY_inst(
     .rst_n      (sys_rst_n  ),
     .key_in     (key_in     ),
     .key_out    (key_out    )
+);
+
+beep_bgm		beep_bgm_inst(
+	.clk		(sys_clk	),
+	.rst_n		(sys_rst_n	),
+	.flag		(sys_rst_n	),
+	.mode_n		(mode		),
+
+	.pwm		(pwm		)
 );
 
 always @(posedge sys_clk or negedge sys_rst_n) begin

@@ -188,7 +188,7 @@ assign  data_S[63]  =  {8'h5e>>2,8'h1a>>2,8'h63>>2}  ;
 
 //字母D
 assign  data_D[00]  =  {8'h5e>>2,8'h1a>>2,8'h63>>2}  ;
-assign  data_D[01]  =  {data_g,data_r,data_b}   ;
+assign  data_D[01]  =  {data_g,data_r,data_b}  ;
 assign  data_D[02]  =  {data_g,data_r,data_b}  ;
 assign  data_D[03]  =  {data_g,data_r,data_b}  ;	
 assign  data_D[04]  =  {data_g,data_r,data_b}  ;
