@@ -104,20 +104,20 @@ ws2812_find  ws2812_cfg_ctrl_find_inst
 	.cfg_data       (cfg_data_find      )
 );
 
-// ws2812_draw  ws2812_cfg_ctrl_draw_inst
-// (
-// 	.sys_clk		(sys_clk		),
-// 	.sys_rst_n		(sys_rst_n		),
-// 	.cfg_start		(cfg_start		),
-// 	.ws2812_start	(ws2812_start_draw	),
-//  	.data_r			(data_r			),
-// 	.data_g			(data_g			),
-// 	.data_b			(data_b			),
-//  	.key            (key_draw        ),
-//  	.c_ok           (c_ok           ),
-// 	.cfg_num		(cfg_num_draw		),
-// 	.cfg_data       (cfg_data_draw       )
-// );
+ws2812_draw  ws2812_cfg_ctrl_draw_inst
+(
+	.sys_clk		(sys_clk		),
+	.sys_rst_n		(sys_rst_n		),
+	.cfg_start		(cfg_start		),
+	.ws2812_start	(ws2812_start_draw	),
+ 	.data_r			(data_r			),
+	.data_g			(data_g			),
+	.data_b			(data_b			),
+ 	.key            (key_draw        ),
+ 	.c_ok           (c_ok           ),
+	.cfg_num		(cfg_num_draw		),
+	.cfg_data       (cfg_data_draw       )
+);
 
 FSM_KEY         FSM_KEY_inst(
     .clk        (sys_clk    ),
