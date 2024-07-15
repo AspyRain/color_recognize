@@ -3,6 +3,7 @@ module beep_jingles#(parameter CLK_PRE = 50_000_000, TIME_300MS = 5_000_000)(
     input           rst_n           ,
     input  [4:0]    key             ,
     input  [1:0]    select_flag     ,
+    output          end_cnt_ok      ,
     output reg      pwm
 );
     //频率控制音色 ，占空比控制音量 ，占空比越大，低电平越少，音量越小
@@ -36,36 +37,67 @@ module beep_jingles#(parameter CLK_PRE = 50_000_000, TIME_300MS = 5_000_000)(
     wire                    add_cnt3;
     wire                    end_cnt3;
 
+
     reg                     ctrl    ;   //后25%消音
     reg                     en      ;
-    reg                    ok_flag ;//按下是否为ok键
-
+    reg                     ok_flag ;//按下是否为ok键
+    reg                     cnt_3_enable;
+    wire        [1:0]        now_select_flag;
     always @(posedge clk or negedge rst_n)begin 
         if(!rst_n)begin
             en <= 0;
+            ok_flag <= 1'b0;
+            cnt_3_enable <= 1'b0;
         end 
         else if(key != 5'b0000 )begin 
             if (key[4]==1'b1)begin
                 ok_flag <= 1'b1;
+                cnt_3_enable <= 1'b1;
             end
             else begin
                 ok_flag <= 1'b0;
+                en <= 1'b1;
             end
+        end
+        else if (end_cnt_ok)begin
             en <= 1'b1;
+            cnt_3_enable <= 1'b0;
         end
         else if (key == 5'b0000 && end_cnt3 == 1'b1)begin
             en <= 1'b0;
+            ok_flag <= 1'b0;
         end
         else begin 
             en <= en;
+            ok_flag <= ok_flag;
         end 
     end
 
+    reg         [2-1:0]      cnt_ok    ; //计数器
+    wire                    add_cnt_ok; //开始计数
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n)begin
+             cnt_ok <= 2'b0;
+        end
+        else if (add_cnt_ok)begin
+            if (end_cnt_ok)begin
+                cnt_ok<=2'b0;
+            end
+            else begin
+                cnt_ok <= cnt_ok +1'd1;
+            end
+        end
+        else begin
+            cnt_ok <= cnt_ok;
+        end
+    end
+    assign add_cnt_ok = cnt_3_enable;
+    assign end_cnt_ok = add_cnt_ok && cnt_ok == 2'd3;
     
 
     always @(posedge clk or negedge rst_n)begin
         if(!rst_n)begin
-            cnt1 <= 17'b0;
+            cnt1 <= 17'b0; 
         end
         else if(end_cnt2)begin
             cnt1 <= 17'b0;
@@ -125,11 +157,24 @@ module beep_jingles#(parameter CLK_PRE = 50_000_000, TIME_300MS = 5_000_000)(
 
     assign add_cnt3 = end_cnt2;
     assign end_cnt3 = add_cnt3 && cnt3 == 4 - 1;
-
-
+    reg    update_flag;
+    always @(posedge clk or negedge rst_n) begin
+        if (!rst_n)begin
+            update_flag <= 1'b0;
+        end
+        else begin
+            if (end_cnt_ok)begin
+                update_flag <= 1'b1;
+            end
+            else begin
+                update_flag <= 1'b0;
+            end
+        end
+    end
+    assign now_select_flag =(end_cnt_ok)?select_flag:now_select_flag;
     always @(*)begin
         if (ok_flag)begin
-            case (select_flag)
+            case (now_select_flag)
                 2'b10:
                 case (cnt3)
                     0:          X = SO;
@@ -154,16 +199,8 @@ module beep_jingles#(parameter CLK_PRE = 50_000_000, TIME_300MS = 5_000_000)(
                     3:          X = 1;
                 default:X=1;
             endcase
-                default: 
-                case (cnt3)
-                    0:          X = SO;
-                    1:          X = 1;  
-                    2:          X = 1;
-                    3:          X = 1;
-                default:X=1;
-            endcase
-            endcase
-            
+                default: ;
+            endcase  
         end
         else begin
                 case (cnt3)

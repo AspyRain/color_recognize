@@ -3,15 +3,14 @@ module  color_recognize
 	input	wire			sys_clk		,
 	input	wire			sys_rst_n	,
 	input	wire	[4:0]	key_in		,
+	input			[2:0]	switch		,
 	output	wire			scl			,
 	output	wire			led_data	,
 	output					pwm			,
+	
 	inout	wire			sda	
 );
 
-wire	r_valid  ;
-wire	g_valid  ;
-wire	b_valid  ;
 wire	[7:0]	data_r;
 wire	[7:0]	data_g;
 wire	[7:0]	data_b;
@@ -24,6 +23,7 @@ ws2812_top  ws2812_top_inst
 	.data_r		(data_r	)	,
 	.data_g		(data_g	)	,
 	.data_b		(data_b	)	,
+	.switch		(switch	)	,
 	.pwm		(pwm	)	,
 	.led_data   (led_data    )
 );

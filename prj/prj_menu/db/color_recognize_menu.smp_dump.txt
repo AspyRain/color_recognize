@@ -13,6 +13,46 @@ c_state.STOP 0 0 1 0 0 0 0 0 0 0 1
 c_state.NACK 0 1 0 0 0 0 0 0 0 0 1 
 c_state.WAIT 1 0 0 0 0 0 0 0 0 0 1 
 
+State Machine - |color_recognize|ws2812_top:ws2812_top_inst|rgb_hsv:rgb_hsv_set_inst|rgb_se_n
+Name rgb_se_n.111 rgb_se_n.110 rgb_se_n.100 rgb_se_n.011 rgb_se_n.000 rgb_se_n.001 rgb_se_n.010 
+rgb_se_n.010 0 0 0 0 0 0 0 
+rgb_se_n.001 0 0 0 0 0 1 1 
+rgb_se_n.000 0 0 0 0 1 0 1 
+rgb_se_n.011 0 0 0 1 0 0 1 
+rgb_se_n.100 0 0 1 0 0 0 1 
+rgb_se_n.110 0 1 0 0 0 0 1 
+rgb_se_n.111 1 0 0 0 0 0 1 
+
+State Machine - |color_recognize|ws2812_top:ws2812_top_inst|rgb_hsv:rgb_hsv_set_inst|rgb_se
+Name rgb_se.111 rgb_se.110 rgb_se.100 rgb_se.011 rgb_se.000 rgb_se.001 rgb_se.010 
+rgb_se.010 0 0 0 0 0 0 0 
+rgb_se.001 0 0 0 0 0 1 1 
+rgb_se.000 0 0 0 0 1 0 1 
+rgb_se.011 0 0 0 1 0 0 1 
+rgb_se.100 0 0 1 0 0 0 1 
+rgb_se.110 0 1 0 0 0 0 1 
+rgb_se.111 1 0 0 0 0 0 1 
+
+State Machine - |color_recognize|ws2812_top:ws2812_top_inst|rgb_hsv:rgb_hsv_get_inst|rgb_se_n
+Name rgb_se_n.111 rgb_se_n.110 rgb_se_n.100 rgb_se_n.011 rgb_se_n.000 rgb_se_n.001 rgb_se_n.010 
+rgb_se_n.010 0 0 0 0 0 0 0 
+rgb_se_n.001 0 0 0 0 0 1 1 
+rgb_se_n.000 0 0 0 0 1 0 1 
+rgb_se_n.011 0 0 0 1 0 0 1 
+rgb_se_n.100 0 0 1 0 0 0 1 
+rgb_se_n.110 0 1 0 0 0 0 1 
+rgb_se_n.111 1 0 0 0 0 0 1 
+
+State Machine - |color_recognize|ws2812_top:ws2812_top_inst|rgb_hsv:rgb_hsv_get_inst|rgb_se
+Name rgb_se.111 rgb_se.110 rgb_se.100 rgb_se.011 rgb_se.000 rgb_se.001 rgb_se.010 
+rgb_se.010 0 0 0 0 0 0 0 
+rgb_se.001 0 0 0 0 0 1 1 
+rgb_se.000 0 0 0 0 1 0 1 
+rgb_se.011 0 0 0 1 0 0 1 
+rgb_se.100 0 0 1 0 0 0 1 
+rgb_se.110 0 1 0 0 0 0 1 
+rgb_se.111 1 0 0 0 0 0 1 
+
 State Machine - |color_recognize|ws2812_top:ws2812_top_inst|FSM_KEY:FSM_KEY_inst|key_out_pulse
 Name key_out_pulse.01 
 key_out_pulse.00 0 

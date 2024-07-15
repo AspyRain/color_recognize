@@ -1,0 +1,88 @@
+module ws2812_draw (
+    input wire sys_clk,
+    input wire sys_rst_n,
+    input wire cfg_start,
+    input wire [7:0] data_r,
+    input wire [7:0] data_g,
+    input wire [7:0] data_b,
+    input wire c_ok,
+    input wire [4:0] key,
+    output reg ws2812_start,
+    output reg [5:0] cfg_num,
+    output reg [23:0] cfg_data
+);
+
+localparam CNT_WAIT_MAX = 20'd1_000_000;
+localparam OFFSET_8 = 6'd8;
+localparam OFFSET_7 = 6'd7;
+
+wire    [23:0]    display_data[63:0]            ;
+wire    [23:0]    data_background[63:0]    ;
+
+reg [19:0] cnt_wait;
+reg start_en;
+reg flash_en;
+
+reg [5:0] now_index;
+
+// 初始化和复位逻辑
+always @(posedge sys_clk or negedge sys_rst_n) begin
+    if (!sys_rst_n) begin
+        cnt_wait <= 20'd0;
+        start_en <= 1'b0;
+        flash_en <= 1'b0;
+        now_index <= 6'b0;
+        ws2812_start <= 1'b0;
+        cfg_num <= 6'd0;
+    end else begin
+        // 计数器逻辑
+        if (cnt_wait < CNT_WAIT_MAX - 1'b1) begin
+            cnt_wait <= cnt_wait + 1'b1;
+        end
+        
+        // 上电延时结束
+        if (cnt_wait == CNT_WAIT_MAX - 1'b1) begin
+            start_en <= 1'b1;
+        end
+
+        // 闪烁逻辑
+        flash_en <= c_ok ? ~flash_en : flash_en;
+
+        // ws2812启动逻辑
+        ws2812_start <= (start_en == 1'b1) || ((cfg_start == 1'b1) && (cfg_num == 6'd63));
+
+        // 配置计数逻辑
+        if (cfg_start == 1'b1) begin
+            if (cfg_num < 6'd63) begin
+                cfg_num <= cfg_num + 1'b1;
+            end
+        end
+    end
+end
+
+// 键盘控制光标移动
+always @(posedge sys_clk or negedge sys_rst_n) begin
+    if (!sys_rst_n) begin
+        now_index <= 6'b0;
+    end else begin
+        case (key[3:0])
+            4'b0001: now_index <= (now_index < OFFSET_8) ? now_index + (6'd64 - OFFSET_8) : now_index - OFFSET_8;
+            4'b0010: now_index <= (now_index >= 6'd56) ? now_index - (6'd64 - OFFSET_8) : now_index + OFFSET_8;
+            4'b0100: now_index <= (now_index % 8 == 6'd0) ? now_index + OFFSET_7 : now_index - 6'd1;
+            4'b1000: now_index <= ((now_index + 1) % 8 == 6'd0) ? now_index - OFFSET_7 : now_index + 6'd1;
+            default: ;
+        endcase
+    end
+end
+
+// 数据生成逻辑
+genvar k;
+generate
+    for (k = 0; k < 64; k = k + 1) begin : data_gen
+        wire [23:0] display_data = (k == now_index && flash_en == 1'b1) ? {data_g, data_r, data_b} : (key[4] == 1'b1 ? {8'h00, 8'h00, 8'h00} : data_background[k]);
+        assign data_background[k] = sys_rst_n ? {8'h00, 8'h00, 8'h00} : display_data;
+        assign cfg_data = (cfg_num == k) ? {display_data[23:16] >> 3, display_data[15:8] >> 3, display_data[7:0] >> 3} : cfg_data;
+    end
+endgenerate
+
+endmodule

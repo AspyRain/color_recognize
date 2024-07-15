@@ -40,7 +40,7 @@ module beep_bgm#(parameter CLK_PRE = 50_000_000, TIME_300MS = 10_000_000)(
         FA = CLK_PRE / 698,
         FA1= CLK_PRE / 740,
         SO = CLK_PRE / 784,
-        SO1 = CLK_PRE / 831,
+        SO1= CLK_PRE / 831,
         LA = CLK_PRE / 880,
         LA1= CLK_PRE / 932,
         SI = CLK_PRE / 988,
