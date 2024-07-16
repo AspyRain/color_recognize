@@ -4,9 +4,13 @@ module  color_recognize
 	input	wire			sys_rst_n	,
 	input	wire	[4:0]	key_in		,
 	input			[2:0]	switch		,
+	input					tx_device	,
+
+
 	output	wire			scl			,
 	output	wire			led_data	,
 	output					pwm			,
+	output					rx_device	,
 	
 	inout	wire			sda	
 );
@@ -14,7 +18,7 @@ module  color_recognize
 wire	[7:0]	data_r;
 wire	[7:0]	data_g;
 wire	[7:0]	data_b;
-
+wire	[7:0]	temp_data;
 ws2812_top  ws2812_top_inst
 (
 	.sys_clk	(sys_clk	),
@@ -37,5 +41,14 @@ cls381_top_multi  cls381_top_inst
 	.data_g_out		(data_g	)	,
 	.data_b_out		(data_b	)	,
 	.sda			(sda		)
+);
+
+wifi_config	wifi_config_temp(
+	.sys_clk		(sys_clk	),
+	.sys_rst_n		(sys_rst_n	),
+	.tx_device		(tx_device	),
+
+	.temp_data		(temp_data	),
+	.rx_device		(rx_device	)
 );
 endmodule

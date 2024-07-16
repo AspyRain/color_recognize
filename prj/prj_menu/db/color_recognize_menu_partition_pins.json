@@ -12,6 +12,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "rx_device",
+					"strict" : false
+				},
+				{
 					"name" : "sda",
 					"strict" : false
 				},
@@ -36,11 +40,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "key_in[4]",
+					"name" : "key_in[0]",
 					"strict" : false
 				},
 				{
-					"name" : "key_in[0]",
+					"name" : "key_in[4]",
 					"strict" : false
 				},
 				{
@@ -53,6 +57,10 @@
 				},
 				{
 					"name" : "key_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "tx_device",
 					"strict" : false
 				},
 				{

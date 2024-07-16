@@ -47,9 +47,6 @@ set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
 set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_location_assignment PIN_E15 -to key_in[0]
 set_location_assignment PIN_E16 -to key_in[1]
 set_location_assignment PIN_M15 -to key_in[2]
@@ -75,7 +72,6 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STATE_BITS=11" -s
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_BUFFER_FULL_STOP=1" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_CURRENT_RESOURCE_WIDTH=1" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INCREMENTAL_ROUTING=1" -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[30] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_LEVEL=1" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_IN_ENABLED=0" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_PIPELINE=0" -section_id auto_signaltap_0
@@ -87,205 +83,26 @@ set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_ENABLE_ADVANCED_T
 set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
 set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
 set_location_assignment PIN_J1 -to pwm
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[19] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[22] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[29] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[3] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[2] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[26] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[25] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[14] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[28] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[8] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[12] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[7] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SEGMENT_SIZE=2048" -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_SAMPLE_DEPTH=2048" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to "ws2812_top:ws2812_top_inst|HSVComparator:HSVComparator_inst|similar_flag[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to "ws2812_top:ws2812_top_inst|HSVComparator:HSVComparator_inst|similar_flag[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[0] -to "ws2812_top:ws2812_top_inst|HSVComparator:HSVComparator_inst|similar_flag[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[1] -to "ws2812_top:ws2812_top_inst|HSVComparator:HSVComparator_inst|similar_flag[1]" -section_id auto_signaltap_0
 set_location_assignment PIN_P14 -to switch[0]
 set_location_assignment PIN_N9 -to switch[1]
 set_location_assignment PIN_N12 -to switch[2]
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[5] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[6] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[10] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[17] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[20] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[21] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[24] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[0] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[1] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[4] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[11] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[13] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[15] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[23] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[27] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[31] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[7] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[8] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[10]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[9] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[11]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[10] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[12]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[11] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[13]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[12] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[14]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[13] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[15]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[14] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[16]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[15] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[17]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[16] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[18]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[17] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[19]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[18] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[19] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[20]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[20] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[21]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[21] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[22]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[22] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[23]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[23] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[24]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[24] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[25]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[25] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[26]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[26] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[27]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[27] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[28]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[28] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[29]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[29] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[2]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[30] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[30]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[31] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[31]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[32] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[32]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[33] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[33]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[34] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[34]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[35] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[35]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[36] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[36]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[37] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[37]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[38] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[38]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[39] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[39]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[40] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[3]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[41] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[40]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[42] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[41]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[43] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[42]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[44] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[43]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[45] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[44]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[46] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[45]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[47] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[46]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[48] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[47]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[49] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[48]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[50] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[49]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[51] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[4]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[52] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[50]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[53] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[51]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[54] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[52]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[55] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[53]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[56] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[54]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[57] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[55]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[58] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[56]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[59] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[57]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[60] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[58]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[61] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[59]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[62] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[5]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[63] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[60]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[64] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[61]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[65] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[62]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[66] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[63]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[67] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[6]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[68] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[7]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[69] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[8]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[70] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[9]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[71] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|now_index[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[72] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|now_index[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[73] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|now_index[2]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[74] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|now_index[3]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[75] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|now_index[4]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[76] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|now_index[5]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[77] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|similar_flag[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[78] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|similar_flag[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[7] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[8] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[10]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[9] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[11]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[10] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[12]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[11] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[13]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[12] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[14]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[13] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[15]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[14] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[16]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[15] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[17]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[16] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[18]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[17] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[19]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[18] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[19] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[20]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[20] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[21]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[21] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[22]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[22] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[23]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[23] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[24]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[24] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[25]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[25] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[26]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[26] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[27]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[27] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[28]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[28] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[29]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[29] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[2]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[30] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[30]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[31] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[31]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[32] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[32]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[33] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[33]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[34] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[34]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[35] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[35]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[36] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[36]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[37] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[37]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[38] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[38]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[39] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[39]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[40] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[3]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[41] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[40]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[42] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[41]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[43] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[42]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[44] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[43]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[45] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[44]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[46] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[45]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[47] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[46]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[48] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[47]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[49] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[48]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[50] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[49]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[51] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[4]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[52] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[50]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[53] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[51]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[54] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[52]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[55] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[53]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[56] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[54]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[57] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[55]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[58] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[56]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[59] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[57]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[60] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[58]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[61] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[59]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[62] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[5]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[63] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[60]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[64] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[61]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[65] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[62]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[66] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[63]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[67] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[6]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[68] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[7]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[69] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[8]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[70] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[9]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[71] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|now_index[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[72] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|now_index[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[73] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|now_index[2]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[74] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|now_index[3]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[75] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|now_index[4]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[76] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|now_index[5]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[77] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|similar_flag[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[78] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|similar_flag[1]" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_DATA_BITS=79" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=79" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_BITS=79" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=262" -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[9] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[16] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
 set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[18] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to "ws2812_top:ws2812_top_inst|key_find[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[3] -to "ws2812_top:ws2812_top_inst|key_find[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[4] -to "ws2812_top:ws2812_top_inst|key_find[2]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[5] -to "ws2812_top:ws2812_top_inst|key_find[3]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[6] -to "ws2812_top:ws2812_top_inst|key_find[4]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[2] -to "ws2812_top:ws2812_top_inst|key_find[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[3] -to "ws2812_top:ws2812_top_inst|key_find[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[4] -to "ws2812_top:ws2812_top_inst|key_find[2]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[5] -to "ws2812_top:ws2812_top_inst|key_find[3]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[6] -to "ws2812_top:ws2812_top_inst|key_find[4]" -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[6] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[10] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[29] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[1] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_global_assignment -name VERILOG_FILE ../../rtl/rtl_menu/wifi_config.v
+set_global_assignment -name VERILOG_FILE ../../rtl/rtl_menu/uart_tx.v
+set_global_assignment -name VERILOG_FILE ../../rtl/rtl_menu/uart_rx.v
+set_global_assignment -name VERILOG_FILE ../../rtl/rtl_menu/esp8266_ctrl.v
+set_global_assignment -name VERILOG_FILE ../../rtl/rtl_menu/ws2812_select.v
+set_global_assignment -name VERILOG_FILE ../../rtl/rtl_menu/ws2812_find.v
+set_global_assignment -name VERILOG_FILE ../../rtl/rtl_menu/ws2812_draw.v
 set_global_assignment -name VERILOG_FILE ../../rtl/rtl_menu/ws2812_data_cfg_ctrl.v
 set_global_assignment -name VERILOG_FILE ../../rtl/rtl_menu/rgb_hsv.v
 set_global_assignment -name VERILOG_FILE ../../rtl/rtl_menu/HSVComparator.v
@@ -301,5 +118,232 @@ set_global_assignment -name VERILOG_FILE ../../rtl/rtl_menu/cls381_top_multi.v
 set_global_assignment -name VERILOG_FILE ../../rtl/rtl_menu/cls381_cfg_ctrl.v
 set_global_assignment -name SIGNALTAP_FILE output_files/stp1.stp
 set_global_assignment -name SIGNALTAP_FILE output_files/1.stp
+set_location_assignment PIN_L13 -to tx_device
+set_location_assignment PIN_L12 -to rx_device
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[8] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[14] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[17] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[24] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to "esp8266_ctrl:esp8266_ctrl|pi_flag" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to "esp8266_ctrl:esp8266_ctrl|po_flag" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to "esp8266_ctrl:esp8266_ctrl|skip_en" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[3] -to "esp8266_ctrl:esp8266_ctrl|state[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[4] -to "esp8266_ctrl:esp8266_ctrl|state[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[5] -to "esp8266_ctrl:esp8266_ctrl|state[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[6] -to temp_data[0] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[7] -to temp_data[1] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[8] -to temp_data[2] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[9] -to temp_data[3] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[10] -to temp_data[4] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[11] -to temp_data[5] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[12] -to temp_data[6] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[13] -to temp_data[7] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[14] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[15] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[16] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[17] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[18] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[19] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[20] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[21] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[22] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|state[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[23] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|state[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[24] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|state[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[25] -to "ws2812_top:ws2812_top_inst|HSVComparator:HSVComparator_inst|similar_flag[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[26] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[27] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[28] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[29] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[30] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[31] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[32] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[33] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[34] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[35] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[36] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[37] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[38] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[39] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[40] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[41] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[42] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[43] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[44] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[45] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[46] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[47] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[48] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[49] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[50] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[51] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[32]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[52] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[33]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[53] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[34]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[54] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[35]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[55] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[36]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[56] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[37]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[57] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[38]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[58] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[39]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[59] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[60] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[40]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[61] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[41]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[62] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[42]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[63] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[43]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[64] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[44]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[65] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[45]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[66] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[46]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[67] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[47]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[68] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[48]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[69] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[49]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[70] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[71] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[50]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[72] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[51]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[73] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[52]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[74] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[53]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[75] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[54]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[76] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[55]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[77] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[56]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[78] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[57]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[79] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[58]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[80] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[59]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[81] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[82] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[60]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[83] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[61]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[84] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[62]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[85] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[63]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[86] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[87] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[88] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[89] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[90] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|key[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[91] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|key[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[92] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|key[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[93] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|key[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[94] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|key[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[95] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|similar_flag[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[96] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|similar_flag[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[0] -to "esp8266_ctrl:esp8266_ctrl|pi_flag" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[1] -to "esp8266_ctrl:esp8266_ctrl|po_flag" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[2] -to "esp8266_ctrl:esp8266_ctrl|skip_en" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[3] -to "esp8266_ctrl:esp8266_ctrl|state[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[4] -to "esp8266_ctrl:esp8266_ctrl|state[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[5] -to "esp8266_ctrl:esp8266_ctrl|state[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[6] -to temp_data[0] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[7] -to temp_data[1] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[8] -to temp_data[2] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[9] -to temp_data[3] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[10] -to temp_data[4] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[11] -to temp_data[5] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[12] -to temp_data[6] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[13] -to temp_data[7] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[14] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[15] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[16] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[17] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[18] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[19] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[20] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[21] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|pi_data[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[22] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|state[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[23] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|state[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[24] -to "wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|state[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[25] -to "ws2812_top:ws2812_top_inst|HSVComparator:HSVComparator_inst|similar_flag[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[26] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[27] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[10]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[28] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[11]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[29] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[12]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[30] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[13]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[31] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[14]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[32] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[15]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[33] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[16]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[34] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[17]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[35] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[18]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[36] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[19]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[37] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[38] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[20]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[39] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[21]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[40] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[22]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[41] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[23]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[42] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[24]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[43] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[25]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[44] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[26]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[45] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[27]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[46] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[28]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[47] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[29]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[48] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[49] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[30]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[50] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[31]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[51] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[32]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[52] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[33]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[53] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[34]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[54] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[35]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[55] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[36]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[56] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[37]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[57] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[38]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[58] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[39]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[59] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[60] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[40]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[61] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[41]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[62] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[42]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[63] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[43]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[64] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[44]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[65] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[45]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[66] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[46]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[67] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[47]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[68] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[48]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[69] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[49]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[70] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[71] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[50]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[72] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[51]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[73] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[52]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[74] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[53]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[75] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[54]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[76] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[55]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[77] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[56]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[78] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[57]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[79] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[58]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[80] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[59]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[81] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[82] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[60]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[83] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[61]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[84] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[62]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[85] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[63]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[86] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[87] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[88] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[89] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|is_correct[9]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[90] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|key[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[91] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|key[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[92] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|key[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[93] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|key[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[94] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|key[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[95] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|similar_flag[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[96] -to "ws2812_top:ws2812_top_inst|ws2812_find:ws2812_cfg_ctrl_find_inst|similar_flag[1]" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_DATA_BITS=97" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=97" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_BITS=97" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=316" -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[0] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[2] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[3] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[4] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[5] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[7] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[9] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[11] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[12] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[13] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[16] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[19] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[20] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[21] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[23] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[25] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[26] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[27] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[28] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[30] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
-set_global_assignment -name SLD_FILE db/1_auto_stripped.stp

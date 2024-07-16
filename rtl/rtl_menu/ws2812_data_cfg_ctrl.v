@@ -15,7 +15,6 @@ module  ws2812_data_cfg_ctrl
 	output	reg		[5:0]	cfg_num			,	//配置的8x8点阵个数，最大值64-1
 	output			[23:0]	cfg_data		,	//待显示的颜色数据
 
-	output	wire		[2:0]	point		,			//颜色是否找正确的提示信息
 	output  	    [7:0] 	set_r ,
 	output		    [7:0] 	set_g ,
 	output			[7:0] 	set_b
@@ -26,12 +25,12 @@ reg		[5:0]	now_index;
 reg     [1:0]   mode_c;//模式选择
 reg     [1:0]   mode_n;//模式选择
 
-wire	[23:0]	data_show[63:0]			;
-wire	[23:0]	data_background[63:0]	;
+reg	[23:0]	data_show[63:0]			;
+reg	[23:0]	data_background[63:0]	;
 wire    [23:0]  data_find [63:0]    ;
 wire	[23:0]	data_S[63:0]			;
 wire	[23:0]	data_D[63:0]            ;			//图片数据
-wire	[63:0]	is_correct				;
+reg	[63:0]	is_correct				;
 
 reg		[19:0]	cnt_wait  				;			//上电等待计数器，等待20ms后一直保持最大值
 reg				start_en  				;			//上电等待结束开始工作信号
@@ -179,50 +178,77 @@ always@(posedge sys_clk or negedge sys_rst_n)
 		cfg_num  <=  cfg_num  ;
 
 //显示选择器
-genvar k;
-generate
-    for (k = 0; k < 64; k = k + 1) begin : data_gen
+always @(*) begin : data_gen
             //灯阵显示
-            assign data_show[k] =
+            data_show[cfg_num] =
                 (mode_c == 2'b0) ? //处于菜单模块
-                    (mode_n == 2'b0) ? 24'h0: (mode_n == 2'b1) ? data_S[k] : (mode_n == 2'b10) ? data_D[k] : 24'h0
+                    (mode_n == 2'b0) ? 24'h0: (mode_n == 2'b1) ? data_S[cfg_num] : (mode_n == 2'b10) ? data_D[cfg_num] : 24'h0
                 : // 否则(即为颜色配对模块和识色绘图模块)
-                    (k == now_index && flash_en == 1'b1) ? {data_g,data_r,data_b}: data_background[k];
+                    (cfg_num == now_index && flash_en == 1'b1) ? {data_g,data_r,data_b}: data_background[cfg_num];
             //灯阵数据配置
-            assign data_background[k] = 
+            data_background[cfg_num] = 
                 (mode_c == 2'b0 || sys_rst_n==1'b0) ? //复位或者处于菜单界面
                     {8'h00,8'h00,8'h00} //情况数据缓存
                 :(mode_c == 2'b01) ? //处于颜色配对模块
-                    (flash_en == 1'b0 || is_correct[k]) ? // 配对成功
-                        data_find[k] 
+                    (flash_en == 1'b0 || is_correct[cfg_num]) ? // 配对成功
+                        data_find[cfg_num] 
                     : //否则
                         {8'h00,8'h00,8'h00} //清空
                 :(mode_c == 2'b10) ? //处于识色绘图模块
                     (key[4]==1'b1) ?  
-                        data_show[k]
+                        data_show[cfg_num]
                         : //否则
-                        data_background[k]
+                        data_background[cfg_num]
                     : //否则
                         {8'h00,8'h00,8'h00};
 
             //颜色匹配模块中判断是颜色是否匹配成功
-            assign is_correct[k] =  
-            (sys_rst_n == 1'b0 || mode_c == 2'b0) ? 
-                    1'b0
-                :(mode_c == 2'b01) ? //处于颜色匹配模块?  
-                    (k == now_index) ? 
-                        (similar_flag == 2'b01) ? 
-                            1'b1
-                            :(similar_flag == 2'b10) ? 
-                                    is_correct[k]
-                                :
-                                    1'b0
-                        :   
-                            is_correct[k]     
-                    : 
-                        is_correct[k];
+            is_correct[cfg_num] =  (sys_rst_n == 1'b0)?1'b0:( cfg_num == now_index ? ((similar_flag == 2'b01) ? 1'b1:(similar_flag == 2'b10)?is_correct[cfg_num]:1'b0) : is_correct[cfg_num]);
     end
-endgenerate
+// genvar k;
+// generate
+//     for (k = 0; k < 64; k = k + 1) begin : data_gen
+//             //灯阵显示
+//             assign data_show[cfg_num] =
+//                 (mode_c == 2'b0) ? //处于菜单模块
+//                     (mode_n == 2'b0) ? 24'h0: (mode_n == 2'b1) ? data_S[cfg_num] : (mode_n == 2'b10) ? data_D[cfg_num] : 24'h0
+//                 : // 否则(即为颜色配对模块和识色绘图模块)
+//                     (cfg_num == now_index && flash_en == 1'b1) ? {data_g,data_r,data_b}: data_background[cfg_num];
+//             //灯阵数据配置
+//             assign data_background[cfg_num] = 
+//                 (mode_c == 2'b0 || sys_rst_n==1'b0) ? //复位或者处于菜单界面
+//                     {8'h00,8'h00,8'h00} //情况数据缓存
+//                 :(mode_c == 2'b01) ? //处于颜色配对模块
+//                     (flash_en == 1'b0 || is_correct[cfg_num]) ? // 配对成功
+//                         data_find[cfg_num] 
+//                     : //否则
+//                         {8'h00,8'h00,8'h00} //清空
+//                 :(mode_c == 2'b10) ? //处于识色绘图模块
+//                     (key[4]==1'b1) ?  
+//                         data_show[cfg_num]
+//                         : //否则
+//                         data_background[cfg_num]
+//                     : //否则
+//                         {8'h00,8'h00,8'h00};
+
+//             //颜色匹配模块中判断是颜色是否匹配成功
+//             assign is_correct[cfg_num] =  
+//             (sys_rst_n == 1'b0 || mode_c == 2'b0) ? 
+//                     1'b0
+//                 :(mode_c == 2'b01) ? //处于颜色匹配模块?  
+//                     (cfg_num == now_index) ? 
+//                         (similar_flag == 2'b01) ? 
+//                             1'b1
+//                             :(similar_flag == 2'b10) ? 
+//                                     is_correct[cfg_num]
+//                                 :
+//                                     1'b0
+//                         :   
+//                             is_correct[cfg_num]     
+//                     : 
+//                         is_correct[cfg_num];
+//     end
+// endgenerate
 
 			assign set_g = (key[4] == 1 && mode_c == 2'b01)   ? data_find[now_index][23:16] 	: {8'h00};
 			assign set_r = (key[4] == 1 && mode_c == 2'b01)   ? data_find[now_index][15:8] 	: {8'h00};

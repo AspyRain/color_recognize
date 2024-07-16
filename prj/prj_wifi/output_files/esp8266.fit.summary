@@ -1,0 +1,16 @@
+Fitter Status : Successful - Tue Jul 16 22:43:11 2024
+Quartus Prime Version : 18.0.0 Build 614 04/24/2018 SJ Standard Edition
+Revision Name : esp8266
+Top-level Entity Name : wifi_config
+Family : Cyclone IV E
+Device : EP4CE6F17C8
+Timing Models : Final
+Total logic elements : 1,876 / 6,272 ( 30 % )
+    Total combinational functions : 1,209 / 6,272 ( 19 % )
+    Dedicated logic registers : 1,303 / 6,272 ( 21 % )
+Total registers : 1303
+Total pins : 4 / 180 ( 2 % )
+Total virtual pins : 0
+Total memory bits : 116,736 / 276,480 ( 42 % )
+Embedded Multiplier 9-bit elements : 0 / 30 ( 0 % )
+Total PLLs : 0 / 2 ( 0 % )

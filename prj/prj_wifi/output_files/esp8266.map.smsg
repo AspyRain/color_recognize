@@ -1,0 +1,1 @@
+Info (10281): Verilog HDL Declaration information at esp8266_ctrl.v(18): object "ACK_END" differs only in case from object "ack_end" in the same scope File: D:/study/FPGA/color_recognize/rtl/rtl_wifi/esp8266_ctrl.v Line: 18

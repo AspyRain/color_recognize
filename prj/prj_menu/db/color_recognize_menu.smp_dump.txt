@@ -1,4 +1,10 @@
 
+State Machine - |color_recognize|wifi_config:wifi_config_temp|esp8266_ctrl:esp8266_ctrl|c_state
+Name c_state.IDLE c_state.ACK c_state.SEND_INSTR 
+c_state.IDLE 0 0 0 
+c_state.SEND_INSTR 1 0 1 
+c_state.ACK 1 1 0 
+
 State Machine - |color_recognize|cls381_top_multi:cls381_top_inst|i2c_ctrl:i2c_ctrl_inst|c_state
 Name c_state.WAIT c_state.NACK c_state.STOP c_state.ACK_3 c_state.DATA c_state.ACK_2 c_state.REG_ADDR c_state.ACK_1 c_state.SLAVE_ADDR c_state.START c_state.IDLE 
 c_state.IDLE 0 0 0 0 0 0 0 0 0 0 0 
@@ -65,18 +71,6 @@ state_c.DOWN 0 0 1 1
 state_c.HOLD 0 1 0 1 
 state_c.UP 1 0 0 1 
 
-State Machine - |color_recognize|ws2812_top:ws2812_top_inst|ws2812_data_cfg_ctrl:ws2812_cfg_ctrl_inst|mode_c
-Name mode_c.00 mode_c.10 mode_c.01 
-mode_c.00 0 0 0 
-mode_c.01 1 0 1 
-mode_c.10 1 1 0 
-
-State Machine - |color_recognize|ws2812_top:ws2812_top_inst|ws2812_data_cfg_ctrl:ws2812_cfg_ctrl_inst|mode_n
-Name mode_n.00 mode_n.10 mode_n.01 
-mode_n.00 0 0 0 
-mode_n.01 1 0 1 
-mode_n.10 1 1 0 
-
 State Machine - |color_recognize|ws2812_top:ws2812_top_inst|ws2812_ctrl:ws2812_ctrl_inst|c_state
 Name c_state.SEND_ONE c_state.SEND_ZERO c_state.ARBIT c_state.IDLE c_state.RST_N 
 c_state.IDLE 0 0 0 0 0 
@@ -84,3 +78,9 @@ c_state.ARBIT 0 0 1 1 0
 c_state.SEND_ZERO 0 1 0 1 0 
 c_state.SEND_ONE 1 0 0 1 0 
 c_state.RST_N 0 0 0 1 1 
+
+State Machine - |color_recognize|ws2812_top:ws2812_top_inst|ws2812_select:ws2812_cfg_ctrl_select_inst|select_index
+Name select_index.00 select_index.10 select_index.01 
+select_index.00 0 0 0 
+select_index.01 1 0 1 
+select_index.10 1 1 0 
