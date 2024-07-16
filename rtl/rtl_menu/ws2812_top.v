@@ -16,17 +16,17 @@ wire			ws2812_start;
 wire	[5:0]	cfg_num		;
 wire	[23:0]	cfg_data	;
 
-wire			ws2812_start_draw;
-wire	[5:0]	cfg_num_draw		;
-wire	[23:0]	cfg_data_draw	;
+// wire			ws2812_start_draw;
+// wire	[5:0]	cfg_num_draw		;
+// wire	[23:0]	cfg_data_draw	;
 
-wire			ws2812_start_select;
-wire	[5:0]	cfg_num_select		;
-wire	[23:0]	cfg_data_select	;
+// wire			ws2812_start_select;
+// wire	[5:0]	cfg_num_select		;
+// wire	[23:0]	cfg_data_select	;
 
-wire			ws2812_start_find;
-wire	[5:0]	cfg_num_find		;
-wire	[23:0]	cfg_data_find	;
+// wire			ws2812_start_find;
+// wire	[5:0]	cfg_num_find		;
+// wire	[23:0]	cfg_data_find	;
 wire	[7:0]	set_r		;
 wire	[7:0]	set_g		;
 wire	[7:0]	set_b		;
@@ -34,9 +34,9 @@ wire	[7:0]	set_b		;
 wire	[4:0]	key_out		;
 wire	[1:0]	mode		;
 
-reg		[4:0]	key_draw;
-reg		[4:0]	key_menu;
-reg		[4:0]	key_find;
+// reg		[4:0]	key_draw;
+// reg		[4:0]	key_menu;
+// reg		[4:0]	key_find;
 wire            c_ok        ;
 wire			pwm_bgm		;
 wire			pwm_jingle	;
@@ -51,20 +51,20 @@ wire			pwm_jingle	;
 
     wire    [1:0]       similar_flag;
 
-ws2812_select  ws2812_cfg_ctrl_select_inst
-(
-	.sys_clk		(sys_clk		)			,
-	.sys_rst_n		(sys_rst_n		)			,
-	.cfg_start		(cfg_start		)			,
-	.ws2812_start	(ws2812_start_select	)	,
- 	.key            (key_menu        )			,
- 	.data_r			(data_r			)			,
-	.data_g			(data_g			)			,
-	.data_b			(data_b			)			,
-	.mode			(mode			)			,
-	.cfg_num		(cfg_num_select		)		,
-	.cfg_data       (cfg_data_select       )
-);
+// ws2812_select  ws2812_cfg_ctrl_select_inst
+// (
+// 	.sys_clk		(sys_clk		)			,
+// 	.sys_rst_n		(sys_rst_n		)			,
+// 	.cfg_start		(cfg_start		)			,
+// 	.ws2812_start	(ws2812_start_select	)	,
+//  	.key            (key_menu        )			,
+//  	.data_r			(data_r			)			,
+// 	.data_g			(data_g			)			,
+// 	.data_b			(data_b			)			,
+// 	.mode			(mode			)			,
+// 	.cfg_num		(cfg_num_select		)		,
+// 	.cfg_data       (cfg_data_select       )
+// );
 
 ws2812_ctrl  ws2812_ctrl_inst
 (
@@ -85,38 +85,57 @@ counter         counter_inst(
     .c_ok       (c_ok       )
 );
 
-ws2812_find  ws2812_cfg_ctrl_find_inst
+// ws2812_find  ws2812_cfg_ctrl_find_inst
+// (
+// 	.sys_clk		(sys_clk			),
+// 	.sys_rst_n		(sys_rst_n			),
+// 	.cfg_start		(cfg_start			),
+// 	.ws2812_start	(ws2812_start_find	),
+//  	.data_r			(data_r				),
+// 	.data_g			(data_g				),
+// 	.data_b			(data_b				),
+// 	.set_r			(set_r				),
+// 	.set_g			(set_g				),
+// 	.set_b			(set_b				),
+//  	.key            (key_find       	),
+// 	.similar_flag	(similar_flag		),
+//  	.c_ok           (c_ok           	),
+// 	.cfg_num		(cfg_num_find		),
+// 	.cfg_data       (cfg_data_find      )
+// );
+
+// ws2812_draw  ws2812_cfg_ctrl_draw_inst
+// (
+// 	.sys_clk		(sys_clk		),
+// 	.sys_rst_n		(sys_rst_n		),
+// 	.cfg_start		(cfg_start		),
+// 	.ws2812_start	(ws2812_start_draw	),
+//  	.data_r			(data_r			),
+// 	.data_g			(data_g			),
+// 	.data_b			(data_b			),
+//  	.key            (key_draw        ),
+//  	.c_ok           (c_ok           ),
+// 	.cfg_num		(cfg_num_draw		),
+// 	.cfg_data       (cfg_data_draw       )
+// );
+
+ws2812_data_cfg_ctrl  ws2812_cfg_ctrl_inst
 (
 	.sys_clk		(sys_clk			),
 	.sys_rst_n		(sys_rst_n			),
 	.cfg_start		(cfg_start			),
-	.ws2812_start	(ws2812_start_find	),
+	.ws2812_start	(ws2812_start	),
  	.data_r			(data_r				),
 	.data_g			(data_g				),
 	.data_b			(data_b				),
 	.set_r			(set_r				),
 	.set_g			(set_g				),
 	.set_b			(set_b				),
- 	.key            (key_find       	),
+ 	.key            (key_out       	),
 	.similar_flag	(similar_flag		),
  	.c_ok           (c_ok           	),
-	.cfg_num		(cfg_num_find		),
-	.cfg_data       (cfg_data_find      )
-);
-
-ws2812_draw  ws2812_cfg_ctrl_draw_inst
-(
-	.sys_clk		(sys_clk		),
-	.sys_rst_n		(sys_rst_n		),
-	.cfg_start		(cfg_start		),
-	.ws2812_start	(ws2812_start_draw	),
- 	.data_r			(data_r			),
-	.data_g			(data_g			),
-	.data_b			(data_b			),
- 	.key            (key_draw        ),
- 	.c_ok           (c_ok           ),
-	.cfg_num		(cfg_num_draw		),
-	.cfg_data       (cfg_data_draw       )
+	.cfg_num			(cfg_num		),
+	.cfg_data       (cfg_data      )
 );
 
 FSM_KEY         FSM_KEY_inst(
@@ -187,41 +206,41 @@ beep_jingles	beep_jingles_inst(
 
 //assign pwm = pwm_jingle;
 
-always @(posedge sys_clk or negedge sys_rst_n) begin
-	if (!sys_rst_n)begin
-		key_draw <= 5'b0;
-		key_menu <= 5'b0;
-		key_find <= 5'b0;
-	end
-	else begin
-		case (mode)
-			2'b00:begin
-				key_menu <= key_out; 
-				key_draw <= 5'b0;
-				key_find <= 5'b0;
-			end
-			2'b10:begin
-				key_draw <= key_out; 
-				key_menu <= 5'b0;
-				key_find <= 5'b0;
-			end
-			2'b01:begin
-				key_find <= key_out; 
-				key_menu <= 5'b0;
-				key_draw <= 5'b0;
-			end
-			default: begin
-				key_draw <= 5'b0;
-				key_menu <= 5'b0;
-				key_find <= 5'b0;
-			end
-		endcase
-	end
-end
+// always @(posedge sys_clk or negedge sys_rst_n) begin
+// 	if (!sys_rst_n)begin
+// 		key_draw <= 5'b0;
+// 		key_menu <= 5'b0;
+// 		key_find <= 5'b0;
+// 	end
+// 	else begin
+// 		case (mode)
+// 			2'b00:begin
+// 				key_menu <= key_out; 
+// 				key_draw <= 5'b0;
+// 				key_find <= 5'b0;
+// 			end
+// 			2'b10:begin
+// 				key_draw <= key_out; 
+// 				key_menu <= 5'b0;
+// 				key_find <= 5'b0;
+// 			end
+// 			2'b01:begin
+// 				key_find <= key_out; 
+// 				key_menu <= 5'b0;
+// 				key_draw <= 5'b0;
+// 			end
+// 			default: begin
+// 				key_draw <= 5'b0;
+// 				key_menu <= 5'b0;
+// 				key_find <= 5'b0;
+// 			end
+// 		endcase
+// 	end
+// end
 
-assign cfg_num = (mode == 2'b00)?cfg_num_select:(mode == 2'b10)?cfg_num_draw:(mode == 2'b01)?cfg_num_find:6'b0;
-assign cfg_data = (mode == 2'b00)?cfg_data_select:(mode == 2'b10)?cfg_data_draw:(mode == 2'b01)?cfg_data_find:24'b0;
-assign ws2812_start = (mode == 2'b00)?ws2812_start_select:(mode == 2'b10)?ws2812_start_draw:(mode == 2'b01)?ws2812_start_find:1'b0;
+// assign cfg_num = (mode == 2'b00)?cfg_num_select:(mode == 2'b10)?cfg_num_draw:(mode == 2'b01)?cfg_num_find:6'b0;
+// assign cfg_data = (mode == 2'b00)?cfg_data_select:(mode == 2'b10)?cfg_data_draw:(mode == 2'b01)?cfg_data_find:24'b0;
+// assign ws2812_start = (mode == 2'b00)?ws2812_start_select:(mode == 2'b10)?ws2812_start_draw:(mode == 2'b01)?ws2812_start_find:1'b0;
 
 
 

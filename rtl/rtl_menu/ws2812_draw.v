@@ -135,6 +135,5 @@ generate
     end
 endgenerate
 
-//默认显示字母“N”
 
 endmodule
