@@ -23,7 +23,6 @@ public class WeatherController {
 
         if (response.getStatusCode().is2xxSuccessful()) {
             String body = response.getBody();
-            // 调用修改后的parseWeatherData方法
             return parseWeatherDataToInt8bit(body);
         } else {
             return null;

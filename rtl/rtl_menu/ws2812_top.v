@@ -8,6 +8,8 @@ module  ws2812_top
 	input	wire	[7:0]	data_g		,
 	input	wire	[7:0]	data_b		,
 	output	wire			led_data	,
+	output  wire    [1:0]   similar_flag,
+	output  wire	[1:0]	mode		,
 	output					pwm			
 );
 
@@ -32,7 +34,6 @@ wire	[7:0]	set_g		;
 wire	[7:0]	set_b		;
 
 wire	[4:0]	key_out		;
-wire	[1:0]	mode		;
 
 reg		[4:0]	key_draw;
 reg		[4:0]	key_menu;
@@ -49,7 +50,6 @@ wire			pwm_jingle	;
     wire    [8:0]   hsv_set_s;
     wire    [8:0]   hsv_set_v;
 
-    wire    [1:0]       similar_flag;
 
 ws2812_select  ws2812_cfg_ctrl_select_inst
 (
@@ -204,7 +204,7 @@ beep_jingles	beep_jingles_inst(
         .similar_flag       (similar_flag)
     );
 
-//assign pwm = pwm_jingle;
+assign pwm = pwm_jingle & pwm_bgm;
 
 always @(posedge sys_clk or negedge sys_rst_n) begin
 	if (!sys_rst_n)begin

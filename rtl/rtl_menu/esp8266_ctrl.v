@@ -287,7 +287,7 @@ always@(*)
 					instr_data	=	{INSTR_8,8'h0d,8'h0a}  ;
 					instr_num	=	6'd12	;
 				 end
-        4'd9: begin
+        4'd9:begin
                 instr_data = {INSTR_9,8'h0d,8'h0a};
                 instr_num = 6'd49;
 		end
